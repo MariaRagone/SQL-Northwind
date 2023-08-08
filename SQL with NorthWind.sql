@@ -51,16 +51,83 @@ USE Northwind
 
 --Extra Challenges:
 --1 Calculate the average, max, and min of the quantity at the orderdetails table, grouped by the orderid. 
+--SELECT * FROM [Order Details]
+--SELECT AVG(OrderID), MAX(OrderID), MIN(OrderID) FROM [Order Details]
 
-SELECT AVG () FROM [Order Details]
---common calculations
---SELECT COUNT(*) FROM Tickets
---WHERE Num_sold >0;
+--2 Calculate the average, max, and min of the quantity at the orderdetails table.
+--SELECT AVG(Quantity), MAX(Quantity), MIN(Quantity) FROM [Order Details]
 
---SELECT SUM(Num_sold) FROM Tickets;
---SELECT AVG (Price) FROM Tickets;
---SELECT MAX (Num_sold) FROM Tickets;
---SELECT MIN (Price) FROM Tickets;
+--3 Find all customers living in London or Paris
+--SELECT * FROM Customers
+--WHERE City = 'London' OR City = 'Paris'
+
+--4 Do an inner join, left join, right join on orders and customers tables. 
+--SELECT * FROM Orders
+--INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+--SELECT * FROM Orders
+--RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+--SELECT * FROM Orders
+--LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+--5 Make a list of cities where customers are coming from. The list should not have any duplicates or nulls.
+
+--SELECT DISTINCT City FROM Customers
+--WHERE City IS NOT NULL;
+
+--6 Show a sorted list of employees’ first names. 
+
+--SELECT FirstName FROM Employees
+--ORDER BY FirstName
+
+--7 Find total for each order
+--SELECT Quantity * UnitPrice FROM [Order Details]
+
+--8 Get a list of all employees who got hired between 1/1/1994 and today
+--SELECT * FROM Employees
+--WHERE HireDate > '1994-1-1' AND HireDate < CAST(GETDATE() AS DATE);
+
+--9 Find how long employees have been working for Northwind (in years!)
+--SELECT EmployeeID, FirstName, LastName, DATEDIFF(YEAR, HireDate, GETDATE())AS years_of_service FROM Employees
+
+--10 Get a list of all products sorted by quantity (ascending and descending order)
+--SELECT * FROM Products
+--ORDER BY UnitsInStock DESC; 
+
+--SELECT * FROM Products
+--ORDER BY UnitsInStock; 
+
+--11 Find all products that are low on stock (quantity less than 6)
+--SELECT * FROM Products
+--WHERE UnitsInStock < 6;
+
+--12 Find a list of all discontinued products. 
+
+--SELECT * FROM Products
+--WHERE Discontinued = '1';
+
+--13 Find a list of all products that have Tofu in the product name.
+--SELECT * FROM Products
+--WHERE ProductName LIKE '%Tofu%';
+
+--14 Find the product that has the highest unit price.
+--SELECT TOP 1*  FROM Products
+--ORDER BY UnitPrice DESC;
+
+--15 Get a list of all employees who got hired after 1/1/1993
+--SELECT * FROM Employees
+--WHERE HireDate > '1993-1-1';
+
+--16 Get all employees who have title : “Ms.” And “Mrs.”
+--SELECT * FROM Employees
+--WHERE TitleOfCourtesy = 'Ms.' OR TitleOfCourtesy = 'Mrs.';
+
+--17 Get all employees who have a Home phone number that has area code 206
+--SELECT * FROM Employees
+--WHERE HomePhone LIKE '(206)%';
+
+
 
 
 
